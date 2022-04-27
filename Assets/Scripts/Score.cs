@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    public Transform player;
+    Transform player;
     public Text scoreText;
 
+    void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
     void Update()
     {
         scoreText.text = (player.position.z + 47.5).ToString("0");
