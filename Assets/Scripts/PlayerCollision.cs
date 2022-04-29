@@ -3,6 +3,13 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 public PlayerMovement movement;
+AudioSource coinAcquireSound;
+
+
+    void Start()
+    {
+        coinAcquireSound = GetComponent<AudioSource>();
+    }
 
     void OnCollisionEnter (Collision collisionInfo)
     {
@@ -24,6 +31,7 @@ public PlayerMovement movement;
        {
             Destroy(collisionInfo.gameObject);
             FindObjectOfType<GameManager>().IncreaseCoinCount();
+            coinAcquireSound.Play();
 
        }
    }
