@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Coin
   - SphericalObstacle
+  - LevelNum
   layers:
   - Default
   - TransparentFX
