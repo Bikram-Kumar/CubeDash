@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1273503377198877004, guid: 53216a063b93214489f80416308a3b5c, type: 3}
       propertyPath: GearSpeed
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1273503377198877004, guid: 53216a063b93214489f80416308a3b5c, type: 3}
       propertyPath: GearForce.y

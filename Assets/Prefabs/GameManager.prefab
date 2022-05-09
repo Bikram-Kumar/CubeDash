@@ -46,5 +46,3 @@ MonoBehaviour:
   restartDelay: 2
   CoinCount: 0
   completeLevelUI: {fileID: 0}
-  PauseMenu: {fileID: 0}
-  ResumeMenu: {fileID: 0}

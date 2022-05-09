@@ -13,15 +13,19 @@ public class GameManager : MonoBehaviour
 
     public GameObject completeLevelUI;
     GameObject PauseMenu;
-    public GameObject ResumeMenu;
+  
+    GameObject ResumeMenu;
 
 
     void Start()
     {
         CoinCountText = GameObject.Find("Canvas/CoinDisplayParent/CoinCount").GetComponent<Text>();
-        CoinCountText.text = CoinCount.ToString();
         PauseMenu = GameObject.Find("Canvas/PauseMenu");
-        Debug.Log(PauseMenu);
+        ResumeMenu = GameObject.Find("Canvas/ResumeMenu");
+
+        CoinCountText.text = CoinCount.ToString();
+        ResumeMenu.SetActive(false);
+
     }
 
 
@@ -40,6 +44,12 @@ public class GameManager : MonoBehaviour
         }
     }   
 
+    public void Restart() 
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+    }
+
 
     public void IncreaseCoinCount()
     {
@@ -49,29 +59,25 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void Restart() 
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
-        // PauseMenu.SetActive(false);
-        // ResumeMenu.SetActive(true);
+        PauseMenu.SetActive(false);
+        ResumeMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-        // PauseMenu.SetActive(true);
-        // ResumeMenu.SetActive(false);
+        ResumeMenu.SetActive(false);
+        PauseMenu.SetActive(true);
+        Time.timeScale = 1.0f;
     }
 
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
-
+        Time.timeScale = 1.0f;
     }
 
     public void QuitGame()

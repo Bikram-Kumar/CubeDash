@@ -6,6 +6,8 @@ public class GearTrigger : MonoBehaviour
     public Vector3 GearForce = new Vector3(0f, 30f, 10f);
     public float GearSpeed = 5.0f;
 
+    bool Accelerated = false;
+
 
     void OnTriggerEnter(Collider collider)
     {
@@ -17,9 +19,13 @@ public class GearTrigger : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name == "Player")
+
+        if (collision.collider.name == "Player" && !Accelerated)
         {
-            collision.collider.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * GearSpeed), ForceMode.VelocityChange);
+            collision.collider.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * GearSpeed) + new Vector3(0,2,0), ForceMode.VelocityChange);
+            Accelerated = true;
         }
     }
+
+    
 }

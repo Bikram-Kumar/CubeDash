@@ -14,12 +14,18 @@ public class LevelMenu : MonoBehaviour
         int highestLevelReached = PlayerPrefs.GetInt("PlayerLevel");
         highestLevelReached = highestLevelReached == 0 ? 1 : highestLevelReached;
 
+        if (highestLevelReached == 0)
+        {
+            highestLevelReached = 1;
+        } else if (highestLevelReached == 11)
+        {
+            highestLevelReached = 10;
+        }
+
         for (int i = 1; i <= highestLevelReached; i++)
         {
             levelOptions.Add("Level " + i);
         }
-        Debug.Log(levelOptions);
-        Debug.Log(highestLevelReached);
 
         levelSelector.ClearOptions();
         levelSelector.AddOptions(levelOptions);

@@ -13,4 +13,10 @@ public class Congrats : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
