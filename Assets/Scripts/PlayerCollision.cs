@@ -34,6 +34,9 @@ public AudioClip coinAcquireSound;
             Destroy(collisionInfo.gameObject);
             FindObjectOfType<GameManager>().IncreaseCoinCount();
             audioSource.PlayOneShot(coinAcquireSound, 1.0f);
+       } else if (collisionInfo.gameObject.tag == "GameOverTrigger")
+       {
+           FindObjectOfType<GameManager>().EndGame();
        }
    }
 }
