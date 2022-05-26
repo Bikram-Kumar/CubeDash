@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GearForce: {x: 0, y: 30, z: 10}
+  GearSpeed: 5
+  airSweepSound: {fileID: 8300000, guid: a4b2859a43ef8f1498f3e369b013f1cc, type: 3}

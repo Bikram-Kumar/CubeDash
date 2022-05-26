@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1309605909838647629}
   coinAcquireSound: {fileID: 8300000, guid: 9e2bda049618cc64faa0785e7065b677, type: 3}
+  collisionSound: {fileID: 8300000, guid: 35a301a881f74374d9e270bb6e0e0127, type: 3}
 --- !u!82 &1346270805
 AudioSource:
   m_ObjectHideFlags: 0

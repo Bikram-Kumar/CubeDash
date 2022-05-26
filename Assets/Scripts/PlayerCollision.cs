@@ -4,7 +4,10 @@ public class PlayerCollision : MonoBehaviour
 {
 public PlayerMovement movement;
 AudioSource audioSource;
+
 public AudioClip coinAcquireSound;
+public AudioClip collisionSound;
+
 
 
 
@@ -17,10 +20,14 @@ public AudioClip coinAcquireSound;
     {
         if (collisionInfo.collider.tag == "Obstacle" || collisionInfo.collider.tag == "SphericalObstacle")
         {
-            if (collisionInfo.impulse.sqrMagnitude > 75)
+            float impulse = collisionInfo.impulse.sqrMagnitude;
+            if (impulse > 75)
             {
+                audioSource.PlayOneShot(collisionSound, 1.0f);
                 movement.enabled = false;
                 FindObjectOfType<GameManager>().EndGame();
+            } else {
+                audioSource.PlayOneShot(collisionSound, impulse / 75);
             }
             
         }
